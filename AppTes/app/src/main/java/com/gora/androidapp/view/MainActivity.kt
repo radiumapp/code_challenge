@@ -1,57 +1,75 @@
-package com.gora.androidapp
+package com.gora.androidapp.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.format.DateFormat
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import com.google.gson.Gson
+import com.gora.androidapp.R
+import com.gora.androidapp.adapter.MainActivityAdapter
 import com.gora.androidapp.config.toyBox
-import com.gora.androidapp.model.messageResponse
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.security.Timestamp
-import java.text.SimpleDateFormat
+import com.gora.androidapp.model.messageDataResponse
+import com.gora.androidapp.model.messageFilterResponse
+import com.gora.androidapp.presenter.MainActivityPresenter
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityView {
+
+    private lateinit var presenter: MainActivityPresenter
+    private lateinit var adapter: MainActivityAdapter
+    private var items: MutableList<messageFilterResponse> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*try {
-            val inputStream: InputStream = assets.open("message_dataset.json")
-            val inputStreamReader = InputStreamReader(inputStream)
-            val sb = StringBuilder()
-            var line: String?
-            val br = BufferedReader(inputStreamReader)
-            line = br.readLine()
-            while (br.readLine() != null) {
-                sb.append(line)
-                line = br.readLine()
-            }
-            br.close()
-            Log.d("tes",sb.toString())
-        } catch (e:Exception){
-            Log.d("tes", e.toString())
+        presenter = MainActivityPresenter(this)
+        presenter.getData(this)
+
+        adapter = MainActivityAdapter(this, items)
+        rvMessage.layoutManager = LinearLayoutManager(this)
+        rvMessage.adapter = adapter
+    }
+
+    override fun showMessage(data: List<messageDataResponse>) {
+
+        var me          = "A"
+        lateinit var message: String
+        lateinit var type: String
+        lateinit var dateTime: String
+        lateinit var position: String
+        lateinit var lampiran: String
+
+        /*for  (item in data){
+            Log.d("log",item.id)
+            Log.d("log", toyBox.unixTimeToDate(item.timestamp))
+            Log.d("log","--------------------------------------")
         }*/
 
+        //sort ascending by timestamp
+        toyBox.sortAscByTimestamp(data)
 
-        var gson = Gson()
+        items.clear()
+        for  (item in data){
 
-        try {
-            val inputStream:InputStream = assets.open("message_dataset.json")
-            val inputString = inputStream.bufferedReader().use{it.readText()}
-            var mData = gson?.fromJson(inputString,messageResponse::class.java)
-
-            for  (item in mData.data){
-                Log.d("try",item.id)
-                Log.d("try",toyBox.unixTimeToDate(item.timestamp))
-                Log.d("try","--------------------------------------")
+            message = item.body?:"-"
+            type    = item.attachment?:"-"
+            dateTime= toyBox.unixTimeToDate(item.timestamp)?:"-"
+            if(item.from.equals(me)){
+                position = "R"
+            }else{
+                position = "L"
             }
-        } catch (e:Exception){
-            Log.d("catch", e.toString())
+            if(type.equals("image")){
+                //lampiran = "R.drawable.image"+item.id
+                lampiran = "image"+item.id
+            }else{
+                lampiran = "-"
+            }
+
+            items.add(messageFilterResponse(message=message,type=type,dateTime=dateTime,position=position,lampiran=lampiran))
         }
+
+        adapter.notifyDataSetChanged()
     }
 }

@@ -1,4 +1,8 @@
 package com.gora.androidapp.model
 
-class messageResponse {
-}
+import com.google.gson.annotations.SerializedName
+
+data class messageResponse(
+    @SerializedName("data")
+    val data: List<messageDataResponse>
+)
