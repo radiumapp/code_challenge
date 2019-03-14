@@ -17,5 +17,8 @@ data class messageFilterResponse(
         val position: String? = null,
 
         @SerializedName("lampiran")
-        val lampiran: String? = null
+        val lampiran: String? = null,
+
+        @SerializedName("totalCollection")
+        val totalCollection: String? = null
 )

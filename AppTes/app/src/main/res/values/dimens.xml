@@ -3,4 +3,5 @@
     <dimen name="range_6">6dp</dimen>
     <dimen name="range_12">12dp</dimen>
     <dimen name="range_24">24dp</dimen>
+    <dimen name="range_100">100dp</dimen>
 </resources>

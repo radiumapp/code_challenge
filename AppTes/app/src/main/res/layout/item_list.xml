@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/rlParent"
+<RelativeLayout android:id="@+id/rlParent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="right"
-    android:padding="@dimen/range_12">
+    android:padding="@dimen/range_12"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/rlContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_right">
+
+
+        <include
+            layout="@layout/grid"
+            android:id="@+id/gcImage"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tvImage"/>
 
         <ImageView
             android:id="@+id/tvImage"
@@ -20,69 +29,23 @@
             android:layout_height="wrap_content"
             android:src="@drawable/image5"
             android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tvMessage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="@dimen/range_12"
             android:layout_marginLeft="@dimen/range_24"
             android:layout_marginRight="@dimen/range_24"/>
-
-        <!--<TableLayout
-            android:id="@+id/tlColage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/range_6">
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/range_6">
-                <ImageView
-                    android:id="@+id/tvImageColage1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="center"
-                    android:src="@drawable/image5"
-                    android:layout_marginRight="@dimen/range_6"
-                    android:visibility="visible"/>
-                <ImageView
-                    android:id="@+id/tvImageColage2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="center"
-                    android:src="@drawable/image5"
-                    android:layout_marginLeft="@dimen/range_6"
-                    android:visibility="visible"/>
-            </TableRow>
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/range_6">
-                <ImageView
-                    android:id="@+id/tvImageColage1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="center"
-                    android:src="@drawable/image5"
-                    android:layout_marginRight="@dimen/range_6"
-                    android:visibility="visible"/>
-                <ImageView
-                    android:id="@+id/tvImageColage2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="center"
-                    android:src="@drawable/image5"
-                    android:layout_marginLeft="@dimen/range_6"
-                    android:visibility="visible"/>
-            </TableRow>
-
-        </TableLayout>-->
 
         <TextView
             android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvImage"
             android:textColor="@color/siam"
             android:text="@string/message"
+            app:layout_constraintBottom_toTopOf="@+id/tvDateTime"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0"
             android:layout_marginTop="@dimen/range_6"
             android:layout_marginLeft="@dimen/range_24"
             android:layout_marginRight="@dimen/range_24"/>
@@ -91,13 +54,16 @@
             android:id="@+id/tvDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvMessage"
             android:textColor="@color/siam"
             android:text="@string/date"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
             android:layout_marginBottom="@dimen/range_6"
             android:layout_marginLeft="@dimen/range_24"
             android:layout_marginRight="@dimen/range_24"/>
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>
