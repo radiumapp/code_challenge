@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TestCodeHiApp</string>
+    <string name="id_list_image">list_image</string>
+    <string name="id_list_contact">list_contact</string>
+    <string name="id_document">document</string>
+    <string name="id_image">image</string>
+    <string name="id_contact">contact</string>
+    <string name="id_merge">merge</string>
+    <string name="hint_write">Tulis Pesan . . .</string>
+</resources>

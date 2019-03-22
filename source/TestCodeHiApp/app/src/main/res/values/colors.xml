@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2798ea</color>
+    <color name="colorPrimaryDark">#0d64a3</color>
+    <color name="colorAccent">#4ca5e6</color>
+
+    <color name="textColorPrimary">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="whiteAlp">#f2f2f2</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="black_transparent">#32000000</color>
+
+    <color name="black_dop">#2d2926</color>
+    <color name="black">#000000</color>
+    <color name="gray_dop">#9e9c9c</color>
+    <color name="gray">#e2e1e1</color>
+    <color name="gray_op">#edecec</color>
+
+    <color name="bluePrimary">#2798ea</color>
+    <color name="bluePrimaryDark">#0d64a3</color>
+
+    <color name="greenPrimary">#00653e</color>
+    <color name="greenAccent">#00a862</color>
+    <color name="greenChat">#a2f1a6</color>
+
+    <color name="goldPrimary">#C2A661</color>
+    <color name="goldAccent">#D1A762</color>
+
+    <color name="orangePrimary">#edb21b</color>
+    <color name="orangeAccent">#ecb52a</color>
+
+    <color name="error_state_red">#e75b52</color>
+
+</resources>
