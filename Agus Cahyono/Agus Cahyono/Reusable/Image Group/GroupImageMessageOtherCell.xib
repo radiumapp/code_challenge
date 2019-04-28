@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="163" id="mvT-f1-cMn" customClass="GroupImageMessageOtherCell" customModule="Agus_Cahyono" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="163"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mvT-f1-cMn" id="xc6-bb-m5C">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="162.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="oRc-06-Hoq" customClass="DynamicCollectionView" customModule="Agus_Cahyono" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="162.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="rMB-TW-V6R">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="oRc-06-Hoq" firstAttribute="top" secondItem="xc6-bb-m5C" secondAttribute="top" id="4Lg-R2-QPK"/>
+                    <constraint firstAttribute="trailing" secondItem="oRc-06-Hoq" secondAttribute="trailing" id="7Uq-Ha-7Tv"/>
+                    <constraint firstAttribute="bottom" secondItem="oRc-06-Hoq" secondAttribute="bottom" id="aiD-8b-mZn"/>
+                    <constraint firstItem="oRc-06-Hoq" firstAttribute="leading" secondItem="xc6-bb-m5C" secondAttribute="leading" id="bgk-Og-J7e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="gVf-xt-dug"/>
+            <connections>
+                <outlet property="gridImage" destination="oRc-06-Hoq" id="jhA-v6-DAm"/>
+            </connections>
+            <point key="canvasLocation" x="52.173913043478265" y="173.77232142857142"/>
+        </tableViewCell>
+    </objects>
+</document>
