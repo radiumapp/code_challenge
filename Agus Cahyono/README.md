@@ -1,5 +1,9 @@
 # UIKit-Chat
 
+## Other CHAT UI
+
+1. https://github.com/balitax/Chat-UI
+
 # Module Pembelajaran iOS Anak Magang
 
 Berupa Youtube Video
